@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Arcade</title>
+    <!-- Use a pixel art font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<body class="dark-theme">
+    <div id="game-container">
+        <!-- Main Menu Overlay -->
+        <div id="menu-screen">
+            <h1 id="game-title">Ramadan Arcade</h1>
+            <div id="total-score-display">Total Score: 0</div>
+            
+            <div id="level-selection">
+                <button class="menu-btn" onclick="startGame(1)">Start Level 1</button>
+                <button class="menu-btn" onclick="startGame(2)">Level 2 (Drummer)</button>
+                <button class="menu-btn" onclick="startGame(3)">Level 3 (Sun)</button>
+                <button id="mode-toggle-btn" class="menu-btn" style="background-color: #4338ca; border-color: #3730a3;" onclick="toggleMode()">MOD: IFTAR</button>
+            </div>
+        </div>
+
+        <div id="ui-layer" style="display: none;">
+            <div id="p1-stats">P1: WASD+X</div>
+            <div id="score-stats">Score: 0</div>
+            <div id="p2-stats">P2: Arrows+SPACE</div>
+        </div>
+
+        <!-- Pause Menu Overlay -->
+        <div id="pause-screen" style="display: none;">
+            <div class="pause-box">
+                <h2 id="pause-title">OYUN DURAKLATILDI</h2>
+                <div class="pause-menu-items">
+                    <button class="pause-btn btn-green" onclick="resumeGame()">&#9654; DEVAM ET</button>
+                    <button class="pause-btn btn-blue" onclick="restartLevel()">&#8635; YENİDEN BAŞLA</button>
+                    <button class="pause-btn btn-brown" id="soundBtn" onclick="toggleSound()">&#9834; SES: AÇIK</button>
+                    <button class="pause-btn btn-red" onclick="goToMainMenu()">&#8962; ANA MENÜ</button>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="600" height="600" style="display: none;"></canvas>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
